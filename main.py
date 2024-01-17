@@ -1,4 +1,5 @@
 import json
+from flask import Flask, render_template
 
 import spotipy
 
@@ -6,9 +7,6 @@ from song import Song
 from artist import Artist
 from album import Album
 
-all_song_objects = []
-all_artist_objects = []
-all_album_objects = []
 user_top_tracks = []
 user_top_artists = []
 
@@ -16,6 +14,8 @@ scopes = "user-top-read"
 CLIENT_ID = "504a3dea7dcb44df9c225dd866fb9b4d"
 CLIENT_SECRET = "505b0e3a7f8a44778d73e5f2e11deaa5"
 REDIRECT_URI = "http://127.0.0.1:5000/redirect"
+
+app = Flask(__name__)
 
 oauth_object = spotipy.oauth2.SpotifyOAuth(CLIENT_ID,CLIENT_SECRET,REDIRECT_URI,scope=scopes)
 access_token = oauth_object.get_access_token(as_dict=False) #as_dict=True will return it as a dictionary, otherwise its only the token itself
@@ -81,12 +81,9 @@ def populate_album_tracks(request_response):
     for idx, track in enumerate(request_response):
         album_tracks.append(track['name'])
     return album_tracks
-'''
-tracks = spotify.current_user_top_tracks(limit=5, time_range='short_term')['items']
-track = tracks[0]
-print(track['album']['id'])
-'''
 
-populate_user_top_tracks(spotify.current_user_top_tracks(limit=5, time_range='short_term')['items'])
-for track in user_top_tracks:
-    print(track)
+populate_user_top_tracks(spotify.current_user_top_tracks(time_range='short_term', limit=5)['items'])
+
+@app.route('/')
+def home_page():
+    return render_template('home.html', user_top_tracks=user_top_tracks)

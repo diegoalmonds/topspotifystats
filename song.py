@@ -5,8 +5,6 @@ class Song:
         self.album = album
         self.duration = duration
     
-
-    
     def __str__(self):
         track_artists = ""
         for artist in self.artists:

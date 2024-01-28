@@ -1,0 +1,17 @@
+.flex-container {
+    margin: auto;
+    border: 1px solid black;
+    display: flex;
+    width: 80%;
+    justify-content: center;
+}
+
+.flex-child {
+    background-color: #f2f1c7;
+    width: 500px;
+    margin: 20px;
+}
+
+.flex-container img {
+    max-width: 100px;
+}

@@ -83,8 +83,9 @@ def populate_album_tracks(request_response):
     return album_tracks
 
 populate_user_top_tracks(spotify.current_user_top_tracks(time_range='short_term', limit=5)['items'])
+populate_user_top_artists(spotify.current_user_top_artists(time_range='short_term', limit=5)['items'])
 print(user_top_tracks[0].album.cover_art[0]['url'])
 
 @app.route('/')
 def home_page():
-    return render_template('base.html', user_top_tracks=user_top_tracks)
+    return render_template('base.html', user_top_tracks=user_top_tracks, user_top_artists=user_top_artists)

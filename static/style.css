@@ -1,3 +1,7 @@
+body {
+    font-family: 'Poppins', serif;
+}
+
 .flex-container {
     margin: auto;
     border: 1px solid black;
@@ -7,11 +11,48 @@
 }
 
 .flex-child {
-    background-color: #f2f1c7;
-    width: 500px;
+    border: 1px solid pink;
+    width: 625px;
     margin: 20px;
 }
 
-.flex-container img {
-    max-width: 100px;
+.item-container {
+    margin: auto;
+    border: 1px solid black;
+    display: flex;
+    width: 85%;
+    justify-content: left;
 }
+
+.item-image {
+    border: 1px solid green;
+    margin: 10px 20px 10px 40px;
+}
+
+.item-info {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid green;
+    margin: 10px 0;
+}
+
+.flex-container img {
+    max-width: 150px;
+}
+
+.result-title {
+    text-align: center;
+}
+
+.item-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.track-artists {
+    font-weight: lighter;
+    text-indent: .5em;
+}
+

@@ -88,4 +88,8 @@ print(user_top_tracks[0].album.cover_art[0]['url'])
 
 @app.route('/')
 def home_page():
-    return render_template('base.html', user_top_tracks=user_top_tracks, user_top_artists=user_top_artists)
+    return render_template('tracks.html', user_top_tracks=user_top_tracks)
+
+@app.route('/artists')
+def view_top_artists():
+    return render_template('artists.html', user_top_artists=user_top_artists)

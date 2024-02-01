@@ -7,59 +7,28 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap">
         <title>Top Spotify Stats</title>   
     </head>
     <body>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="#">Resonant</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link" href="#">Short-Term</a>
-                    <a class="nav-link" href="#">Medium-Term</a>
-                    <a class="nav-link disabled" aria-disabled="true">Long-Term</a>
+                    <a class="nav-link active" aria-current="page" href="#">Songs</a>
+                    <a class="nav-link" href="#">Artists</a>
                 </div>
                 </div>
             </div>
         </nav>
-        <div class="flex-container">
-            <div class="flex-child">
-                <p class="result-title">Top Tracks</p>
-                {% for song in user_top_tracks %}
-                    <div class="item-container">
-                        <div class="item-image">
-                            <img src="{{ song.album.cover_art[0]['url'] }}"/>
-                        </div>
-                        <div class="item-info">
-                            <p class="item-name">{{ song.title }}</p>
-                            <p class="track-artists">
-                                {% for artist in song.artists %}
-                                    {{ artist.name }}
-                                {% endfor %}
-                            </p>
-                        </div>
-                    </div>
-                {% endfor %}
+            <div class="results-container">
+                <p class="result-title">{% block results_title %}{% endblock %}</p>
+                {% block content%}{% endblock %}
             </div>
-            <div class="flex-child">
-                <p class="result-title">Top Artists</p>
-                {% for artist in user_top_artists %}
-                <div class="item-container">
-                    <div class="item-image">
-                        <img src="{{ artist.images[0]['url'] }}"/>
-                    </div>
-                    <div class="item-info">
-                        <p class="item-name">{{ artist.name }}</p>
-                    </div>
-                </div>
-            {% endfor %}
-            </div>
-        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </body>
 </html>

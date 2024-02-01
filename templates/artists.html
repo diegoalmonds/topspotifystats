@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block results_title %}Top Artists{% endblock %}
+{% block content %}
+    {% for artist in user_top_artists %}
+        <div class="item-container">
+            <div class="item-image">
+                <img src="{{ artist.images[0]['url'] }}"/>
+            </div>
+            <div class="item-info">
+                <p class="item-name">{{ artist.name }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

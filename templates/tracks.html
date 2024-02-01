@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block results_title %}Top Tracks{% endblock %}
+{% block content %}
+    {% for song in user_top_tracks %}
+        <div class="item-container">
+            <div class="item-image">
+                <img src="{{ song.album.cover_art[0]['url'] }}"/>
+            </div>
+            <div class="item-info">
+                <p class="item-name">{{ song.title }}</p>
+                <p class="track-artists">
+                    {% for artist in song.artists %}
+                        {{ artist.name }}
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

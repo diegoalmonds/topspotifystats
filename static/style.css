@@ -2,57 +2,41 @@ body {
     font-family: 'Poppins', serif;
 }
 
-.flex-container {
-    margin: auto;
+.results-container {
     border: 1px solid black;
-    display: flex;
-    width: 80%;
-    justify-content: center;
-}
-
-.flex-child {
-    border: 1px solid pink;
-    width: 625px;
-    margin: 20px;
+    margin: 20px auto;
+    width: 65%;
 }
 
 .item-container {
-    margin: auto;
-    border: 1px solid black;
+    border: 1px dotted black;
     display: flex;
-    width: 85%;
+    gap: 15px;
+    margin: 0 auto;
+    width: 70%;
+    margin-bottom: 15px;
     justify-content: left;
 }
 
-.item-image {
-    border: 1px solid green;
-    margin: 10px 20px 10px 40px;
-}
-
-.item-info {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    gap: 10px;
-    border: 1px solid green;
-    margin: 10px 0;
-}
-
-.flex-container img {
-    max-width: 150px;
-}
-
 .result-title {
+    margin: 10px auto;
     text-align: center;
+    font-size: 40px;
+}
+
+.item-image img {
+    width: 135px;
 }
 
 .item-name {
-    font-size: 20px;
+    margin-top: 28px;
+    font-size: 30px;
     font-weight: bold;
 }
 
 .track-artists {
-    font-weight: lighter;
-    text-indent: .5em;
+    margin-top: -17px;
+    font-weight: 100;
+    text-indent: 1em;
 }
 

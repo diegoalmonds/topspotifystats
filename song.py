@@ -5,13 +5,14 @@ class Song:
         self.album = album
         self.duration = duration
     
-    def __str__(self):
+    def get_artists(self):
         track_artists = ""
         for artist in self.artists:
             current_artist = artist.name
             last_artist = self.artists[-1].name
-        if current_artist == last_artist:
-            track_artists += f" {current_artist}"
-        else:
-            track_artists += f" {current_artist},"
-        return f"{self.title} by{track_artists}"
+            if current_artist == last_artist:
+                track_artists += f" {current_artist}"
+            else:
+                track_artists += f"{current_artist},"
+        return track_artists
+    

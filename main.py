@@ -61,6 +61,7 @@ def populate_user_top_tracks(request_response):
         user_top_tracks.append(create_song_object(track))
 
 def populate_user_top_artists(request_response):
+    user_top_artists.clear()
     for idx, artist in enumerate(request_response):
         user_top_artists.append(create_artist_object(artist))
         
@@ -82,14 +83,20 @@ def populate_album_tracks(request_response):
         album_tracks.append(track['name'])
     return album_tracks
 
-populate_user_top_tracks(spotify.current_user_top_tracks(time_range='short_term', limit=5)['items'])
-populate_user_top_artists(spotify.current_user_top_artists(time_range='short_term', limit=5)['items'])
-print(user_top_tracks[0].album.cover_art[0]['url'])
 
 @app.route('/')
-def home_page():
+def home():
+    populate_user_top_tracks(spotify.current_user_top_tracks(time_range='short_term', limit=5)['items'])
     return render_template('tracks.html', user_top_tracks=user_top_tracks)
 
-@app.route('/artists')
-def view_top_artists():
+@app.route('/tracks/<time_frame>')
+def view_top_tracks(time_frame):
+    populate_user_top_tracks(spotify.current_user_top_tracks(time_range=time_frame, limit=5)['items'])
+    return render_template('tracks.html', user_top_tracks=user_top_tracks)
+
+@app.route('/artists/<time_frame>')
+def view_top_artists(time_frame):
+    populate_user_top_artists(spotify.current_user_top_artists(time_range=time_frame, limit=5)['items'])
     return render_template('artists.html', user_top_artists=user_top_artists)
+
+print(user_top_artists)

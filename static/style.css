@@ -1,21 +1,24 @@
 body {
     font-family: 'Poppins', serif;
+    background: linear-gradient(#3B3B3C, #101010);
+    color: white;
 }
 
 .results-container {
-    border: 1px solid black;
     margin: 20px auto;
-    width: 65%;
+    width: 60%;
 }
 
 .item-container {
-    border: 1px dotted black;
     display: flex;
-    gap: 15px;
-    margin: 0 auto;
+    gap: 20px;
+    margin: 10px auto;
     width: 70%;
-    margin-bottom: 15px;
     justify-content: left;
+    padding: 8px;
+    border: 0px solid rgba(28,28,28,.5);
+    border-radius: 10px;
+    background-color: rgba(28,28,28,.6);
 }
 
 .result-title {
@@ -40,3 +43,29 @@ body {
     text-indent: 1em;
 }
 
+.item-divider:not(:last-child) {
+    width: 75%;
+    margin: 0 auto 5px;
+    border-bottom: 3px solid #F3F1ED;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-options {
+    min-width: 125px;
+    display: none;
+    position: absolute;
+    overflow: auto;
+  }
+  
+  .dropdown:hover .dropdown-options {
+    display: block;
+  }
+
+  button {
+    border: none;
+    background-color: white;
+  }

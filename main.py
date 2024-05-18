@@ -89,10 +89,8 @@ def home():
 
 @app.route('/tracks/<time_frame>')
 def view_top_tracks(time_frame):
-    if not user_top_tracks:
-        populate_user_top_tracks(spotify.current_user_top_tracks(time_range=time_frame, limit=5)['items'])
-        return render_template('tracks.html', user_top_tracks=user_top_tracks)
-    return render_template('tracks.html', user_top_tracks=session['top_tracks'])
+    populate_user_top_tracks(spotify.current_user_top_tracks(time_range=time_frame, limit=5)['items'])
+    return render_template('tracks.html', user_top_tracks=user_top_tracks)
 
 @app.route('/artists/<time_frame>')
 def view_top_artists(time_frame):

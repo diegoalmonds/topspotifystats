@@ -11,7 +11,7 @@ user_top_artists = []
 
 scopes = "user-top-read"
 CLIENT_ID = "504a3dea7dcb44df9c225dd866fb9b4d"
-CLIENT_SECRET = "505b0e3a7f8a44778d73e5f2e11deaa5"
+CLIENT_SECRET = "" #hidden
 REDIRECT_URI = "http://127.0.0.1:5000/redirect"
 
 app = Flask(__name__)
